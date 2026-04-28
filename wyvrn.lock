@@ -1,0 +1,16 @@
+{
+  "wyvrnVersion": 2,
+  "generatedAt": "2026-04-28T04:11:05.626Z",
+  "platform": "win_x64",
+  "profileName": "default",
+  "profile": {
+    "os": "Windows",
+    "arch": "x86_64",
+    "compiler": "msvc",
+    "compiler.version": "193",
+    "compiler.cppstd": "20",
+    "compiler.runtime": "dynamic"
+  },
+  "profileHash": "45f34c280b0b8672",
+  "packages": {}
+}

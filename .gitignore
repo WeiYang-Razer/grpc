@@ -185,3 +185,10 @@ fuzz-*.log
 # bazel module files
 third_party/**/MODULE.bazel
 MODULE.bazel.lock
+
+
+# Wyvrn generated files
+cmake-out/
+output/
+wyvrn_internal/
+CMakePresets.json

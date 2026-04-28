@@ -1,0 +1,64 @@
+# Always exclude
+.git/
+.gitignore
+.gitattributes
+.gitmodules
+.github/
+.vscode/
+.idea/
+build/
+wyvrn_internal/
+wyvrn.lock
+CMakePresets.json
+CMakeUserPresets.json
+*.tmp
+*.log
+cmake-out/
+
+# gRPC tests / docs / examples / dev-only tooling
+test/
+doc/
+examples/
+tools/
+templates/
+summerofcode/
+fuzztest/
+
+# Non-C++ language bindings
+src/python/
+src/php/
+src/ruby/
+src/objective-c/
+src/csharp/
+
+# Bazel-only files (we publish the CMake build)
+.bazelci/
+.bcr/
+bazel/
+*.bzl
+WORKSPACE
+WORKSPACE.bazel
+MODULE.bazel
+MODULE.bazel.lock
+BUILD
+BUILD.bazel
+*.BUILD
+
+# third_party — drop subdirs we don't need for a bundled C++ build
+third_party/benchmark/
+third_party/googletest/
+third_party/protoc-gen-validate/
+third_party/cel-spec/
+third_party/envoy-api/
+third_party/xds/
+third_party/googleapis/
+third_party/bloaty/
+third_party/opencensus-proto/
+third_party/rake-compiler-dock/
+third_party/objective_c/
+third_party/toolchains/
+
+# third_party — keep opentelemetry-cpp ONLY when shipping the otel option;
+# the recipe handles the OFF-by-default case so it's safe to drop.
+# Comment this out when publishing the build_otel_plugin=true variant.
+third_party/opentelemetry-cpp/

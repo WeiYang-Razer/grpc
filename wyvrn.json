@@ -1,0 +1,51 @@
+{
+  "name": "grpc",
+  "version": "1.80.0.0",
+  "schemaVersion": 2,
+  "description": "gRPC C++ library — bundled build with all third-party deps from in-tree submodules.",
+  "kind": "StaticLib",
+
+  "options": {
+    "shared":             { "default": false, "allowed": [true, false] },
+    "build_codegen":      { "default": true,  "allowed": [true, false] },
+    "build_otel_plugin":  { "default": false, "allowed": [true, false] },
+    "use_proto_lite":     { "default": false, "allowed": [true, false] }
+  },
+
+  "compatibility": {
+    "compiler.cppstd":           "lte",
+    "compiler.runtime":          "exact",
+    "options.shared":            "exact",
+    "options.build_codegen":     "exact",
+    "options.build_otel_plugin": "exact",
+    "options.use_proto_lite":    "exact"
+  },
+
+  "build": {
+    "system":    "cmake",
+    "generator": ["Ninja Multi-Config", "Visual Studio 17 2022"],
+    "configs":   ["Debug", "Release", "RelWithDebInfo", "MinSizeRel"],
+    "configure": [
+      "-DBUILD_SHARED_LIBS=${options.shared}",
+      "-DgRPC_BUILD_CODEGEN=${options.build_codegen}",
+      "-DgRPC_BUILD_GRPCPP_OTEL_PLUGIN=${options.build_otel_plugin}",
+      "-DgRPC_USE_PROTO_LITE=${options.use_proto_lite}",
+      "-DgRPC_INSTALL=ON",
+      "-DgRPC_BUILD_TESTS=OFF",
+      "-DgRPC_DOWNLOAD_ARCHIVES=OFF",
+      "-DgRPC_ZLIB_PROVIDER=module",
+      "-DgRPC_CARES_PROVIDER=module",
+      "-DgRPC_RE2_PROVIDER=module",
+      "-DgRPC_SSL_PROVIDER=module",
+      "-DgRPC_PROTOBUF_PROVIDER=module",
+      "-DgRPC_ABSL_PROVIDER=module",
+      "-DCMAKE_CXX_STANDARD=17",
+      "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
+      "-DABSL_PROPAGATE_CXX_STD=ON"
+    ],
+    "buildArgs":  ["--parallel"],
+    "installDir": "install"
+  },
+
+  "dependencies": {}
+}
