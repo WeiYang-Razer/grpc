@@ -1,6 +1,6 @@
 {
   "name": "grpc",
-  "version": "1.80.0.2",
+  "version": "1.80.0.3",
   "schemaVersion": 2,
   "description": "gRPC C++ library — bundled build with all third-party deps from in-tree submodules.",
   "kind": "StaticLib",
