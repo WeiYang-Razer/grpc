@@ -1,6 +1,6 @@
 {
   "name": "grpc",
-  "version": "1.80.0.0",
+  "version": "1.80.0.2",
   "schemaVersion": 2,
   "description": "gRPC C++ library — bundled build with all third-party deps from in-tree submodules.",
   "kind": "StaticLib",
@@ -40,7 +40,10 @@
       "-DgRPC_PROTOBUF_PROVIDER=module",
       "-DgRPC_ABSL_PROVIDER=module",
       "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
-      "-DABSL_PROPAGATE_CXX_STD=ON"
+      "-DABSL_PROPAGATE_CXX_STD=ON",
+      "-DCMAKE_DEBUG_POSTFIX=d",
+      "-DCMAKE_RELWITHDEBINFO_POSTFIX=rd",
+      "-DCMAKE_MINSIZEREL_POSTFIX=ms"
     ],
     "buildArgs":  ["--parallel"],
     "installDir": "install"
