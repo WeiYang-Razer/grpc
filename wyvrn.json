@@ -1,6 +1,6 @@
 {
   "name": "grpc",
-  "version": "1.80.0.3",
+  "version": "1.80.0.4",
   "schemaVersion": 2,
   "description": "gRPC C++ library — bundled build with all third-party deps from in-tree submodules.",
   "kind": "StaticLib",
@@ -25,6 +25,7 @@
     "system":    "cmake",
     "generator": ["Ninja Multi-Config", "Visual Studio 17 2022"],
     "configs":   ["Debug", "Release", "RelWithDebInfo", "MinSizeRel"],
+    "publishPerConfig": true,
     "configure": [
       "-DBUILD_SHARED_LIBS=${options.shared}",
       "-DgRPC_BUILD_CODEGEN=${options.build_codegen}",
